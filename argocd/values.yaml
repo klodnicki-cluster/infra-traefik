@@ -2,9 +2,9 @@ traefik:
   deployment:
     kind: DaemonSet
 
-  # service:
-  #   spec:
-  #     type: NodePort
+  service:
+    spec:
+      type: NodePort
 
   ports:
     web:
