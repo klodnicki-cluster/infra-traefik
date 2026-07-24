@@ -1,0 +1,12 @@
+traefik:
+  deployment:
+    kind: DaemonSet
+
+  service:
+    spec:
+      type: NodePort
+
+  ports:
+    websecure:
+      expose:
+        default: false
