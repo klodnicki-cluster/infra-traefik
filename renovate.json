@@ -2,5 +2,17 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended"
+  ],
+  "minimumReleaseAge": "28 days",
+  "automerge": true,
+  "packageRules": [
+    {
+      "description": "Major updates do not automerge",
+      "matchUpdateTypes": ["major"],
+      "automerge": false
+    }
+  ],
+  "postUpdateOptions": [
+    "helmUpdateSubChartDependencies"
   ]
 }
