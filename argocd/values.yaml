@@ -2,11 +2,12 @@ traefik:
   deployment:
     kind: DaemonSet
 
-  service:
-    spec:
-      type: NodePort
+  # service:
+  #   spec:
+  #     type: NodePort
 
   ports:
+    web:
+      nodePort: 30080
     websecure:
-      expose:
-        default: false
+      nodePort: 30443
