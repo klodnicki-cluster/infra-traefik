@@ -11,3 +11,9 @@ traefik:
       nodePort: 30080
     websecure:
       nodePort: 30443
+
+  additionalArguments:
+    # Temporary, untill we get cert-manager or something working
+    # to allow Traefik to reverse-provy against https services that
+    # have self-signed certs
+    - --serverstransport.insecureskipverify=true
