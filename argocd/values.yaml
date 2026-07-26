@@ -17,3 +17,6 @@ traefik:
     # to allow Traefik to reverse-provy against https services that
     # have self-signed certs
     - --serverstransport.insecureskipverify=true
+    # Trust forwarded headers to not mess up cookies, Host header, etc
+    - --entryPoints.web.forwardedHeaders.insecure=true
+    - --entryPoints.websecure.forwardedHeaders.insecure=true
