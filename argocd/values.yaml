@@ -12,13 +12,6 @@ traefik:
     websecure:
       nodePort: 30443
 
-  providers:
-     kubernetesIngress:
-      # Turn on publishedService to add .status.loadBalancer to Ingress objects
-      # which Argocd uses to determine when they are healthy
-      publishedService:
-        enabled: true
-
   additionalArguments:
     # Temporary, untill we get cert-manager or something working
     # to allow Traefik to reverse-provy against https services that
