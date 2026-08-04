@@ -2,10 +2,6 @@ traefik:
   deployment:
     kind: DaemonSet
 
-  service:
-    spec:
-      type: NodePort
-
   ports:
     web:
       nodePort: 30080
