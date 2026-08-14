@@ -1,0 +1,29 @@
+name: helm-template
+
+on:
+  pull_request:
+    paths:
+      - "argocd/Chart.yaml"
+      - "argocd/Chart.lock"
+      - "argocd/values.yaml"
+      - "argocd/templates/**"
+      - ".github/workflows/helm-template.yaml"
+  push:
+    branches: [master]
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Helm
+        uses: azure/setup-helm@v4
+
+      - name: Build dependencies
+        working-directory: argocd
+        run: helm dependency build
+
+      - name: Render templates
+        working-directory: argocd
+        run: helm template . --debug
