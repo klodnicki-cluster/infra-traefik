@@ -20,9 +20,9 @@ jobs:
       - name: Set up Helm
         uses: azure/setup-helm@v4
 
-      - name: Build dependencies
+      - name: Update dependencies
         working-directory: argocd
-        run: helm dependency build
+        run: helm dependency update
 
       - name: Render templates
         working-directory: argocd
