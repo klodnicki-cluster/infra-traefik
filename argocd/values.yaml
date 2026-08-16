@@ -13,3 +13,7 @@ traefik:
     # to allow Traefik to reverse-provy against https services that
     # have self-signed certs
     - --serverstransport.insecureskipverify=true
+
+  service:
+    spec:
+      loadBalancerIP: 192.168.33.1
